@@ -1,0 +1,23 @@
+{
+  "name": "mekanikvillage",
+  "version": "1.0.0",
+  "description": "MERN stack e-commerce and service app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ojigs/mekanikVillage.git"
+  },
+  "author": "Emmanuel Ojighoro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ojigs/mekanikVillage/issues"
+  },
+  "homepage": "https://github.com/ojigs/mekanikVillage#readme",
+  "devDependencies": {
+    "concurrently": "^7.4.0"
+  }
+}
