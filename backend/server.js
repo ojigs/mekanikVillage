@@ -1,10 +1,16 @@
 const express = require('express')
 const app = express()
+const mongoose = require('mongoose')
 const logger = require('morgan')
+const passport = require('passport')
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
 const connectDB = require('./config/database')
 const cors = require('cors')
+const flash = require('express-flash')
 
 const mainRoutes = require('./routes/main')
+
 
 //Use .env file in config folder
 require('dotenv').config({ path: "./config/.env"})
@@ -19,6 +25,23 @@ app.use(express.static('public'))
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+
+//Setup session stored in MongoDB. Flash uses session
+app.use(
+    session({
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: false,
+        store: MongoStore.create({ client: mongoose.connection.getClient() })
+    })
+)
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+//Use flash messages for errors, info, etc
+app.use(flash())
 
 app.use('/', mainRoutes)
 
