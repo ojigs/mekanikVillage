@@ -1,6 +1,6 @@
 const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");
-const Seller = require("../models/User");
+const Seller = require("../models/Seller");
 
 module.exports = function (passport) {
   passport.use(
@@ -36,6 +36,6 @@ module.exports = function (passport) {
   });
 
   passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => done(err, user));
+    Seller.findById(id, (err, user) => done(err, user));
   });
 };

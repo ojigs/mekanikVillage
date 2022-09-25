@@ -5,15 +5,18 @@ const logger = require('morgan')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
-const connectDB = require('./config/database')
 const cors = require('cors')
 const flash = require('express-flash')
 
+const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 
 
 //Use .env file in config folder
 require('dotenv').config({ path: "./config/.env"})
+
+//Passport config
+require('./config/passport')(passport)
 
 //Connect to database
 connectDB()

@@ -35,7 +35,7 @@ SellerSchema.pre("save", function save(next) {
             if (err) {
                 return next(err);
             }
-            user.password = hash;
+            seller.password = hash;
             next();
         });
     });
