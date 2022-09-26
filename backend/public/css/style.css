@@ -26,7 +26,11 @@ p {
 
 a, a:focus, a:hover {
     text-decoration: none;
-  }
+}
+
+textarea {
+  resize: none;
+}
 
 .pt-60 {
     padding-top: 60px;

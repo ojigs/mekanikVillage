@@ -1,0 +1,23 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container d-flex justify-content-between align-items-center">
+    <h1><%= store.shopName %>'s Store</h1>
+    <a href="/store/list" class="btn bg-orange text-white">List products</a>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+      <ul class="row list-unstyled">
+        <% for (var i=0; i < products.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5">
+            <p><%= products[i].name %></p>
+            <a href="/products/<%= products[i]._id%>">
+              <img class="img-fluid" src="<%= products[i].image%>">
+            </a>
+          </li>
+        <% } %>
+        </ul>
+    </div>
+</div> 
+
+<%- include('partials/footer.ejs') %>

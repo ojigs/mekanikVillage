@@ -1,0 +1,88 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container pt-3 col-lg-6">
+    <% if (locals.messages.errors) { %>
+        <% messages.errors.forEach( el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %>    
+    <% } %>
+    <% if (locals.messages.info) { %>
+        <% messages.info.forEach( el => { %>
+            <div class="alert alert-info"><%= el.msg %></div>
+        <% }) %>    
+    <% } %>
+
+    <h1 class="h1 text-center text-orange">List a Product</h1>
+
+    <form action="/store/createProduct" method="POST" enctype="multipart/form-data">
+        <div class="form-group mt-5 row">
+            <label for="product-name" class="col-sm-3 col-form-label">Product Name:</label>
+            <div class="col-sm-9">
+                <input type="text" name="productName" class="form-control" id="product-name" placeholder="">
+            </div>   
+        </div>
+
+        <div class="form-group mt-5 row">
+            <label for="model" class="col-sm-3 col-form-label">Model:</label>
+            <div class="col-sm-9">
+                <select class="form-select" name="model" id="model">
+                    <option value="null" selected>Select Model</option>
+                    <option>Toyota</option>
+                    <option>Honda</option>
+                    <option>Mercedes</option>
+                    <option>Kia</option>
+                    <option>Hyundai</option>
+                </select> 
+            </div>
+        </div>
+
+        <div class="form-group mt-5 row">
+            <label for="categories" class="col-sm-3 col-form-label">Category:</label>
+            <div class="col-sm-9">
+                <select class="form-select" name="categories" id="categories">
+                    <option value="null" selected>Select Category</option>
+                    <option>Interior</option>
+                    <option>Exterior</option>
+                    <option>Lighting</option>
+                    <option>Wheels & Tyres</option>
+                    <option>Lubrication</option>
+                    <option>Body</option>
+                </select> 
+            </div>
+        </div>
+
+        <div class="form-group mt-5 row">
+            <label for="price" class="col-sm-3 col-form-label">Price($):</label>
+            <div class="col-sm-9">
+                <input type="number" name="price" class="form-control" id="price" placeholder="">
+            </div>   
+        </div>
+
+        <div class="form-group mt-4 row">
+            <label for="description" class="col-sm-3 col-form-label">Description:</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" name="description" id="description" cols="30" rows="10" required></textarea>
+            </div>
+        </div>
+
+        <div class="form-group mt-4 row">
+            <label for="product-image" class="col-sm-3 col-form-label">Product image:</label>
+            <div class="col-sm-9">
+                <input type="file" name="file" class="form-control" id="product-image">
+            </div>
+        </div>
+        <!-- <div class="mb-3">
+            <label for="imgUpload" class="form-label">Image</label>
+            <input type="file" class="form-control" id="imageUpload" name="file">
+          </div> -->
+        
+        <div class="row">
+            <span class="col-3"></span>
+            <div class="form-group mt-5 d-flex col-9 justify-content-center">
+                <button type="submit" class="btn text-white bg-orange py-2 px-5">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<%- include('partials/footer.ejs') %>

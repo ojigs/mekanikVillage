@@ -10,6 +10,7 @@ const flash = require('express-flash')
 
 const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
+const storeRoutes = require('./routes/store')
 
 
 //Use .env file in config folder
@@ -47,6 +48,7 @@ app.use(passport.session());
 app.use(flash())
 
 app.use('/', mainRoutes)
+app.use('/store', storeRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log('Server is running, betta go catch it!')

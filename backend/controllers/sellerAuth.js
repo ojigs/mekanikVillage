@@ -4,7 +4,7 @@ const Seller = require('../models/Seller')
 
 exports.getLogin = (req, res) => {
     if (req.user) {
-      return res.redirect("/shop");
+      return res.redirect("/store");
     }
     res.render("sellerLogin");
 };
@@ -38,14 +38,14 @@ exports.postLogin = (req, res, next) => {
                 return next(err)
             }
             req.flash('success', { msg: 'Success! You are logged in' })
-            res.redirect(req.session.returnTo || '/shop')
+            res.redirect(req.session.returnTo || '/store')
         })
     })(req, res, next)
 }
 
 exports.getSignup = (req, res) => {
     if (req.seller) {
-        return res.redirect('/shop')
+        return res.redirect('/store')
     }
     res.render('sellerSignup')
 }
@@ -97,7 +97,7 @@ exports.postSignup = async (req, res, next) => {
                     if (err) {
                         return next(err);
                     }
-                    res.redirect("/shop");
+                    res.redirect("/store");
                 });
             });
         }
