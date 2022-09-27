@@ -1,8 +1,6 @@
 const multer = require("multer");
 const path = require('path');
 
-console.log(path, 'is path')
-
 module.exports = multer({
     storage: multer.diskStorage({}),
     fileFilter: (req, file, cb) => {

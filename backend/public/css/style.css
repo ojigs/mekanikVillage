@@ -416,3 +416,15 @@ textarea {
       display: block;
     }
   }
+
+/* Seller store */
+.product-image {
+  width: 300px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.product-link:hover {
+  color: #E8505B;
+  text-decoration: underline;
+}

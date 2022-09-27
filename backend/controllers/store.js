@@ -20,7 +20,6 @@ module.exports = {
         try {
             // Upload image to cloudinary
             console.log('are you here?')
-            console.log(req.file)
             const result = await cloudinary.uploader.upload(req.file.path);
 
             await Product.create({
@@ -36,7 +35,6 @@ module.exports = {
             console.log("Product has been added!");
             res.redirect("/store");
         } catch (err) {
-            console.log('or here')
             console.log(err);
         }
     }
