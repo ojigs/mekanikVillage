@@ -6,7 +6,7 @@
 </header>
 
 <section class="seller-info">
-  
+
 </section>
 
 <section class="products">
@@ -14,13 +14,21 @@
       <div class="row justify-content-center mt-5">
           <% for (var i=0; i < products.length; i++) {%>
             <div class="row col-9 border rounded mt-5">
-              <div class="col-4 d-flex justify-content-center p-3">
-                <a href=""><img class="product-image" src="<%= products[i].image%>" alt="<%= products[i].name %>" width="150px" height="75px"></a>
+              <div class="col-4 d-flex justify-content-center align-items-center p-3">
+                <a href="/product/<%= products[i]._id%>"><img class="product-image" src="<%= products[i].image%>" alt="<%= products[i].name %>" width="150px" height="75px"></a>
               </div>
               <div class="row align-items-center col-8 p-3">
-                <h5 class=""><a class="text-orange product-link" href="/products/<%= products[i]._id%>"><%= products[i].name %></a></h5>
-                <p class="text-primary mt-3"><a href=""><%= products[i].description %></a></p>
-                <p class="text-primary mt-3"><a href="">$<%= products[i].price %></a></p>
+                <h5 class=""><a class="text-orange product-link" href="/product/<%= products[i]._id%>"><%= products[i].name %></a></h5>
+                <p class="text-primary mt-3"><a href="/product/<%= products[i]._id%>"><%= products[i].description %></a></p>
+                <p class="text-primary mt-3"><a href="/product/<%= products[i]._id%>">$<%= products[i].price %></a></p>
+                <div class="write mt-3 d-flex justify-content-end">
+                  <form action="" method="POST" class="">
+                    <button class="btn fs-5 fa-regular fa-pen-to-square" type="submit"></button>
+                  </form>
+                  <form action="" method="POST" class="">
+                    <button class="btn fs-5 fa-solid fa-trash" type="submit"></button>
+                  </form>
+                </div>
               </div>
             </div>
           <% } %>

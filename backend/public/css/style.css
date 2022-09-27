@@ -14,7 +14,10 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0px;
     margin-bottom: 0px;
     color: #263238;
-    color: red;
+}
+
+.hero-section h1 {
+  color: red;
 }
 
 p {
@@ -72,6 +75,10 @@ textarea {
 
 .bg-pink {
     background-color: #f1deda;
+}
+
+.text-red {
+  color: red;
 }
 
 /* All preloader styles */
@@ -428,3 +435,12 @@ textarea {
   color: #E8505B;
   text-decoration: underline;
 }
+
+/* Categories */
+  /* Lubrication */
+  .categories h2::before {
+    content: "";
+    width: 100px;
+    height: auto;
+    
+  }
