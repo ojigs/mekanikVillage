@@ -1,4 +1,4 @@
-<p%- include('partials/header.ejs') %>
+<%- include('partials/header.ejs') %>
 
 <!-- hero -->
 <section id="home" class="hero-section">
@@ -60,20 +60,128 @@
 
 <!-- categories -->
 <section class="categories pt-60 pb-60">
+    <div class="dash mb-3"></div>
     <h1 class="text-center text-dark">Categories</h1>
     <div class="container">
         <!-- lubrication -->
-        <section class="lubrication row">
+        <section class="lubrication row mt-5">
             <div class="col-4">
                 <h2>Lubrication</h2>
                 <img src="/img/lubrication.png" alt="All things oil">
             </div>
-            <div class="col-lg-8 row flex-wrap justify-content-around align-items-center">
+            <div class="col-lg-8 row flex-wrap justify-content-start align-items-start">
                 <% for (let i = 0; i < lubrication.length; i++) {%>
-                    <div class="card">
-                        <img src="<%= lubrication[i].image %>" alt="" class="card-image-top">
+                    <div class="card col-lg-3 m-3 p-3" style="width: 200px; height: auto;">
+                        <a href="/product/<%= lubrication[i]._id %>">
+                            <img src="<%= lubrication[i].image %>" alt="" class="card-image-top">
+                        </a>
                         <div class="card-body">
                             <p class="card-text"><%= lubrication[i].name %></p>
+                            <p class="card-text text-warning mt-3">$<%= lubrication[i].price %></p>
+                        </div>
+                    </div>
+                <%}%>
+            </div>  
+        </section>
+        <!-- interior -->
+        <section class="lubrication row mt-5">
+            <div class="col-4">
+                <h2>Interior</h2>
+                <img src="/img/interior.png" alt="Interior accessories">
+            </div>
+            <div class="col-lg-8 row flex-wrap justify-content-start">
+                <% for (let i = 0; i < interior.length; i++) {%>
+                    <div class="card col-lg-3 m-3 p-3" style="width: 200px; height: auto;">
+                        <a href="/product/<%= interior[i]._id %>">
+                            <img src="<%= interior[i].image %>" alt="" class="card-image-top">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text"><%= interior[i].name %></p>
+                            <p class="card-text text-warning mt-3">$<%= interior[i].price %></p>
+                        </div>
+                    </div>
+                <%}%>
+            </div>  
+        </section>
+        <!-- exterior -->
+        <section class="lubrication row mt-5">
+            <div class="col-4">
+                <h2>Exterior</h2>
+                <img src="/img/exterior.png" alt="exterior parts">
+            </div>
+            <div class="col-lg-8 row flex-wrap justify-content-start">
+                <% for (let i = 0; i < exterior.length; i++) {%>
+                    <div class="card col-lg-3 m-3 p-3" style="width: 200px; height: auto;">
+                        <a href="/product/<%= exterior[i]._id %>">
+                            <img src="<%= exterior[i].image %>" alt="" class="card-image-top">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text"><%= exterior[i].name %></p>
+                            <span class="fa fa-star text-warning"></span>
+                            <p class="card-text text-warning mt-3">$<%= exterior[i].price %></p>
+                        </div>
+                    </div>
+                <%}%>
+            </div>  
+        </section>
+        <!-- lighting -->
+        <section class="lubrication row mt-5">
+            <div class="col-4">
+                <h2>Lighting</h2>
+                <img src="/img/lighting.png" alt="car lighting">
+            </div>
+            <div class="col-lg-8 row flex-wrap justify-content-start">
+                <% for (let i = 0; i < lighting.length; i++) {%>
+                    <div class="card col-lg-3 m-3 p-3" style="width: 200px; height: auto;">
+                        <a href="/product/<%= lighting[i]._id %>">
+                            <img src="<%= lighting[i].image %>" alt="" class="card-image-top">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text"><%= lighting[i].name %></p>
+                            <span class="fa fa-star text-warning"></span>
+                            <p class="card-text text-warning mt-3">$<%= lighting[i].price %></p>
+                        </div>
+                    </div>
+                <%}%>
+            </div>  
+        </section>
+        <!-- wheels & tyres -->
+        <section class="lubrication row mt-5">
+            <div class="col-4">
+                <h2>Wheels & Tyres</h2>
+                <img src="/img/wheel.png" alt="wheels & tyres">
+            </div>
+            <div class="col-lg-8 row flex-wrap justify-content-start">
+                <% for (let i = 0; i < wheel.length; i++) {%>
+                    <div class="card col-lg-3 m-3 p-3" style="width: 200px; height: auto;">
+                        <a href="/product/<%= wheel[i]._id %>">
+                            <img src="<%= wheel[i].image %>" alt="" class="card-image-top">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text"><%= wheel[i].name %></p>
+                            <span class="fa fa-star text-warning"></span>
+                            <p class="card-text text-warning mt-3">$<%= wheel[i].price %></p>
+                        </div>
+                    </div>
+                <%}%>
+            </div>  
+        </section>
+        <!-- body -->
+        <section class="lubrication row mt-5">
+            <div class="col-4">
+                <h2>Body</h2>
+                <img src="/img/body.png" alt="body parts">
+            </div>
+            <div class="col-lg-8 row flex-wrap justify-content-start">
+                <% for (let i = 0; i < bodies.length; i++) {%>
+                    <div class="card col-lg-3 m-3 p-3" style="width: 200px; height: auto;">
+                        <a href="/product/<%= bodies[i]._id %>">
+                            <img src="<%= bodies[i].image %>" alt="" class="card-image-top">
+                        </a>
+                        <div class="card-body">
+                            <p class="card-text"><%= bodies[i].name %></p>
+                            <span class="fa fa-star text-warning"></span>
+                            <p class="card-text text-warning mt-3">$<%= bodies[i].price %></p>
                         </div>
                     </div>
                 <%}%>

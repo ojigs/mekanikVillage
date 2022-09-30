@@ -8,5 +8,6 @@ router.get('/sellerSignup', sellerAuthController.getSignup)
 router.post('/sellerSignup', sellerAuthController.postSignup)
 router.get('/sellerLogin', sellerAuthController.getLogin)
 router.post('/sellerLogin', sellerAuthController.postLogin)
+router.get('/logout', sellerAuthController.logout)
 
 module.exports = router

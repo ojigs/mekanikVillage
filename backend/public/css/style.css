@@ -81,6 +81,19 @@ textarea {
   color: red;
 }
 
+/* buttons */
+.btn-outline-orange {
+  color: #eb3702;
+  background-color: white;
+  border: 1px solid #eb3702;
+  cursor: pointer;
+}
+
+.btn-outline-orange:hover {
+  color: white;
+  background-color: #eb3702;
+}
+
 /* All preloader styles */
 .preloader {
     position: fixed;
@@ -437,6 +450,12 @@ textarea {
 }
 
 /* Categories */
+.dash {
+  width: 30px;
+  height: 4px;
+  background-color: #eb3702;
+  margin: auto;
+}
   /* Lubrication */
   .categories h2::before {
     content: "";
