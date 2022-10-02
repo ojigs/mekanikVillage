@@ -25,9 +25,7 @@
                 <p class="text-primary mt-3"><a href="/product/<%= products[i]._id%>"><%= products[i].description %></a></p>
                 <p class="text-primary mt-3"><a href="/product/<%= products[i]._id%>">$<%= products[i].price %></a></p>
                 <div class="write mt-3 d-flex justify-content-end">
-                  <form action="/store/updateProduct/<%= products[i]._id %>" method="POST" class="">
-                    <button class="btn fs-5 fa-regular fa-pen-to-square" type="submit"></button>
-                  </form>
+                  <a href="/store/updateProduct/<%= products[i]._id%>" class="btn fs-5 fa-regular fa-pen-to-square"></a>
                   <form action="/store/deleteProduct/<%= products[i].id %>?_method=DELETE" method="POST" class="">
                     <button class="btn fs-5 fa-solid fa-trash" type="submit"></button>
                   </form>

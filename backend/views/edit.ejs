@@ -12,13 +12,13 @@
         <% }) %>    
     <% } %>
 
-    <h1 class="h1 text-center text-orange">List a Product</h1>
+    <h1 class="h1 text-center text-orange">Update Product in Store</h1>
 
     <form action="/store/createProduct" method="POST" enctype="multipart/form-data">
         <div class="form-group mt-5 row">
             <label for="product-name" class="col-sm-3 col-form-label">Product Name:</label>
             <div class="col-sm-9">
-                <input type="text" name="productName" class="form-control" id="product-name" placeholder="">
+                <input type="text" name="productName" class="form-control" id="product-name" value="<%= product.name %>">
             </div>   
         </div>
 
@@ -26,12 +26,12 @@
             <label for="model" class="col-sm-3 col-form-label">Model:</label>
             <div class="col-sm-9">
                 <select class="form-select" name="model" id="model">
-                    <option value="null" selected>Select Model</option>
+                    <option value="">Select Model</option>
                     <option>Toyota</option>
                     <option>Honda</option>
                     <option>Mercedes</option>
                     <option>Kia</option>
-                    <option>Hyundai</option>
+                    <option >Hyundai</option>
                 </select> 
             </div>
         </div>
@@ -61,7 +61,7 @@
         <div class="form-group mt-4 row">
             <label for="description" class="col-sm-3 col-form-label">Description:</label>
             <div class="col-sm-9">
-                <textarea class="form-control" name="description" id="description" cols="30" rows="10" required></textarea>
+                <textarea class="form-control" name="description" id="description" cols="30" rows="10" required><%- include(product.n %></textarea>
             </div>
         </div>
 
@@ -76,6 +76,7 @@
             <span class="col-3"></span>
             <div class="form-group mt-5 d-flex col-9 justify-content-center">
                 <button type="submit" class="btn text-white bg-orange py-2 px-5">Submit</button>
+                <a href="/store" class="btn btn-outline-orange">Cancel</a>
             </div>
         </div>
     </form>
