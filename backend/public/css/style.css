@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-section h1 {
-  color: red;
+  color: #eb3702;
 }
 
 p {
@@ -164,7 +164,7 @@ textarea {
 }
 
 .preloader .loader .indicator svg polyline#front {
-    stroke: #1A76D1;
+    stroke: #eb3702;
     stroke-dasharray: 12, 36;
     stroke-dashoffset: 48;
     animation: dash 1s linear infinite;
@@ -179,7 +179,7 @@ textarea {
     height: 100%;
     width: 60%;
     z-index: -1;
-    background: #1A76D1;
+    background: #eb3702;
     transition: .9s;
 }
 
@@ -254,7 +254,7 @@ textarea {
 
 .main-btn {
     padding: 15px 35px;
-    background-color: #ff0000;
+    background-color: #eb3702;
 
 }
 
@@ -389,8 +389,8 @@ textarea {
   }
   
   .footer .footer-widget .download-btns a:hover {
-    background: #E8505B;
-    border-color: #E8505B;
+    background: #eb3702;
+    border-color: #eb3702;
   }
   
   .footer .footer-widget .download-btns a .icon {
@@ -425,7 +425,7 @@ textarea {
   }
   
   .footer .footer-widget ul.links li a:hover {
-    color: #E8505B;
+    color: #eb3702;
   }
   
   @media (min-width: 1600px) {
@@ -445,7 +445,7 @@ textarea {
 }
 
 .product-link:hover {
-  color: #E8505B;
+  color: #eb3702;
   text-decoration: underline;
 }
 

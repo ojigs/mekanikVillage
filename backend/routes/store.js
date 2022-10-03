@@ -8,6 +8,7 @@ router.get('/', ensureAuth, storeController.getStore)
 router.get('/list', storeController.listProducts)
 router.post('/createProduct', upload.single("file"), storeController.createProduct)
 router.delete('/deleteProduct/:id',  storeController.deleteProduct)
-router.get('/updateProduct/:id', upload.single("file"), storeController.getProduct)
+router.get('/updateProduct/:id', storeController.getProduct)
+router.put('/updateProduct/:id', upload.single("file"), storeController.updateProduct)
 
 module.exports = router

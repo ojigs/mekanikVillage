@@ -65,7 +65,22 @@ module.exports = {
     //update product
     updateProduct: async (req, res) => {
         try {
-            await Product.findOneAndUpdate({ _id: req.params.id })
+            let product = await Product.findById(req.params.id).lean()
+            await cloudinary.uploader.destroy(product.cloudinaryId);
+            const result = await cloudinary.uploader.upload(req.file.path);
+            await Product.findOneAndUpdate({ _id: req.params.id }, {
+                $set: {
+                    name: req.body.productName,
+                    model: req.body.model,
+                    categories: req.body.categories,
+                    price: req.body.price,
+                    description: req.body.description,
+                    image: result.secure_url,
+                    cloudinaryId: result.public_id,
+                    seller: req.user.id,
+                }
+            })
+            res.redirect('/store')
         } catch (error) {
             console.log(error)
         }

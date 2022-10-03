@@ -14,7 +14,7 @@
 
     <h1 class="h1 text-center text-orange">Update Product in Store</h1>
 
-    <form action="/store/createProduct" method="POST" enctype="multipart/form-data">
+    <form action="/store/updateProduct/<%= product._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
         <div class="form-group mt-5 row">
             <label for="product-name" class="col-sm-3 col-form-label">Product Name:</label>
             <div class="col-sm-9">
@@ -27,11 +27,11 @@
             <div class="col-sm-9">
                 <select class="form-select" name="model" id="model">
                     <option value="">Select Model</option>
-                    <option>Toyota</option>
-                    <option>Honda</option>
-                    <option>Mercedes</option>
-                    <option>Kia</option>
-                    <option >Hyundai</option>
+                    <% let models = ['Toyota', 'Honda', 'Mercedes', 'Kia', 'Hyundai']
+                    for (let i = 0; i < models.length; i++) {
+                        const selected = models[i] === product.model ? 'selected' : ''
+                        %><option <%= selected %>><%= models[i] %></option>
+                    <%}%>
                 </select> 
             </div>
         </div>
@@ -40,13 +40,12 @@
             <label for="categories" class="col-sm-3 col-form-label">Category:</label>
             <div class="col-sm-9">
                 <select class="form-select" name="categories" id="categories">
-                    <option value="null" selected>Select Category</option>
-                    <option>Interior</option>
-                    <option>Exterior</option>
-                    <option>Lighting</option>
-                    <option>Wheels & Tyres</option>
-                    <option>Lubrication</option>
-                    <option>Body</option>
+                    <option value="">Select Category</option>
+                    <% let categories = ['Interior', 'Exterior', 'Lighting', 'Wheels & Tyres', 'Lubrication', 'Body']
+                    for (let i = 0; i < categories.length; i++) {
+                        const selected = categories[i] === product.categories ? 'selected' : ''
+                        %><option <%= selected %>><%= categories[i] %></option>
+                    <%}%>
                 </select> 
             </div>
         </div>
@@ -54,21 +53,21 @@
         <div class="form-group mt-5 row">
             <label for="price" class="col-sm-3 col-form-label">Price($):</label>
             <div class="col-sm-9">
-                <input type="number" name="price" class="form-control" id="price" placeholder="">
+                <input type="number" name="price" class="form-control" id="price" value="<%= product.price %>">
             </div>   
         </div>
 
         <div class="form-group mt-4 row">
             <label for="description" class="col-sm-3 col-form-label">Description:</label>
             <div class="col-sm-9">
-                <textarea class="form-control" name="description" id="description" cols="30" rows="10" required><%- include(product.n %></textarea>
+                <textarea class="form-control" name="description" id="description" cols="30" rows="10" required><%= product.description %></textarea>
             </div>
         </div>
 
         <div class="form-group mt-4 row">
             <label for="product-image" class="col-sm-3 col-form-label">Product image:</label>
             <div class="col-sm-9">
-                <input type="file" name="file" class="form-control" id="product-image">
+                <input type="file" name="file" class="form-control" id="product-image" value="<%= product.image %>">
             </div>
         </div>
         
@@ -76,7 +75,7 @@
             <span class="col-3"></span>
             <div class="form-group mt-5 d-flex col-9 justify-content-center">
                 <button type="submit" class="btn text-white bg-orange py-2 px-5">Submit</button>
-                <a href="/store" class="btn btn-outline-orange">Cancel</a>
+                <a href="/store" class="ms-3 btn btn-outline-orange">Cancel</a>
             </div>
         </div>
     </form>
