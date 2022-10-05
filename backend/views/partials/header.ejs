@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mekanik Village</title>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/logo1.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,6 +62,10 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-orange" type="submit">Search</button>
                 </form>
+                <% if (!locals.store) {%>
+                    <a href="/userLogin" class="btn btn-outline-orange ms-3"><i class="fa-solid fa-user"></i></a>
+                    <a href="/userSignup" class="btn btn-outline-orange ms-3"><i class="fa-solid fa-cart-shopping"></i></a>
+                <%}%>
             </div>
         </div>
     </nav>

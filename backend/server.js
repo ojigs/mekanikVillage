@@ -13,6 +13,7 @@ const connectDB = require('./config/database')
 const mainRoutes = require('./routes/main')
 const storeRoutes = require('./routes/store')
 const productRoutes = require('./routes/products')
+const profileRoutes = require('./routes/profile')
 
 
 //Use .env file in config folder
@@ -56,6 +57,7 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/store', storeRoutes)
 app.use('/product', productRoutes)
+app.use('/profile', profileRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log('Server is running, betta go catch it!')

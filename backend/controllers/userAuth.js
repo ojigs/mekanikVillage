@@ -1,15 +1,15 @@
 const passport = require('passport')
 const validator = require('validator')
-const Seller = require('../models/Seller')
+const User = require('../models/User')
 
 exports.getLogin = async (req, res) => {
     if (req.user) {
-        let seller = await Seller.findOne({ _id: req.user.id })
-        if (seller) {
-            return res.redirect("/store");
+        let user = await User.findOne({ _id: req.user.id})
+        if (user) {
+          return res.redirect("/profile");
         }
     }
-    res.render("sellerLogin");
+    res.render("userLogin");
 };
 
 exports.postLogin = (req, res, next) => {
@@ -22,35 +22,37 @@ exports.postLogin = (req, res, next) => {
     }
     if (validationErrors.length) {
         req.flash("errors", validationErrors);
-        return res.redirect("/sellerLogin");
+        return res.redirect("/userLogin");
     }
     req.body.email = validator.normalizeEmail(req.body.email, {
         gmail_remove_dots: false
     })
 
-    passport.authenticate('local', (err, user, info) => {
+    passport.authenticate('local-user', (err, user, info) => {
         if (err) {
             return next(err)
         }
         if (!user) {
-            req.flash("errors", info)
-            return res.redirect('/sellerLogin')
+            req.flash('errors', info)
+            return res.redirect('/userLogin')
         }
         req.login(user, (err) => {
             if (err) {
                 return next(err)
             }
-            req.flash('info', [{ msg: 'Success! You are logged in' }])
-            res.redirect(req.session.returnTo || '/store')
+            req.flash('success', { msg: 'Success! You are logged in' })
+            res.redirect(req.session.returnTo || '/profile')
         })
     })(req, res, next)
 }
 
 exports.getSignup = (req, res) => {
-    if (req.seller) {
-        return res.redirect('/store')
+    if (req.user) {
+        console.log(req.user)
+        return res.redirect('/profile')
     }
-    res.render('sellerSignup')
+    console.log(req.user, req.isAuthenticated())
+    res.render('userSignup')
 }
 
 exports.postSignup = async (req, res, next) => {
@@ -67,40 +69,40 @@ exports.postSignup = async (req, res, next) => {
     if (validationErrors.length) {
         req.flash("errors", validationErrors);
         console.log(validationErrors)
-        return res.redirect("../sellerSignup");
+        return res.redirect("../userSignup");
     }
     req.body.email = validator.normalizeEmail(req.body.email, {
         gmail_remove_dots: false,
     });
 
-    const seller = new Seller({
-        shopName: req.body.shopName,
-        sellerName: req.body.sellerName,
+    const user = new User({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
         email: req.body.email,
         password: req.body.password,
     })
 
-    Seller.findOne(
-        { $or: [{ email: req.body.email }, { shopName: req.body.shopName }] },
-        (err, existingSeller) => {
+    User.findOne(
+        { $or: [{ email: req.body.email }] },
+        (err, existingUser) => {
             if (err) {
                 return next(err);
             }
-            if (existingSeller) {
+            if (existingUser) {
                 req.flash("errors", {
-                    msg: "Account with that email address or shop-name already exists.",
+                    msg: "Account with that email address already exists.",
                 });
-                return res.redirect("../sellerSignup");
+                return res.redirect("../userSignup");
             }
-            seller.save((err) => {
+            user.save((err) => {
                 if (err) {
                     return next(err);
                 }
-                req.logIn(seller, (err) => {
+                req.logIn(user, (err) => {
                     if (err) {
                         return next(err);
                     }
-                    res.redirect("/store");
+                    res.redirect("/profile");
                 });
             });
         }
