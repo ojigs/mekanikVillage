@@ -94,6 +94,19 @@ textarea {
   background-color: #eb3702;
 }
 
+.btn-orange {
+  color: white;
+  background-color: #eb3702;
+  border: 1px solid #eb3702;
+  cursor: pointer;
+}
+
+.btn-orange:hover {
+  color: white;
+  background-color: #fd6435;
+  box-shadow: 3px 6px 9px rgba(0, 0, 0, 0.2);
+}
+
 /* All preloader styles */
 .preloader {
     position: fixed;

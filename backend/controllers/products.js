@@ -7,6 +7,7 @@ module.exports = {
 	        res.render('product', { product: product})
         } catch (error) {
             console.log(error)
+            res.render('errors/500')
         }
     }
 }

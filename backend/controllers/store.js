@@ -9,11 +9,17 @@ module.exports = {
             res.render('store', { store: req.user, products: products })
         } catch (error) {
             console.log(error)
+            res.render('errors/500')
         }
     },
 
     listProducts: (req, res) => {
-        res.render('list')
+        try {
+            res.render('list')
+        } catch (error) {
+            console.log(error)
+            res.render('errors/500')
+        }
     }, 
 
     createProduct: async (req, res) => {
@@ -36,6 +42,7 @@ module.exports = {
             res.redirect("/store");
         } catch (err) {
             console.log(err);
+            res.render('errors/500')
         }
     },
 
@@ -47,8 +54,8 @@ module.exports = {
             console.log('deleted product')
             res.redirect('/store')
         } catch (error) {
-            res.redirect('/store')
             console.log(error)
+            res.render('errors/500')
         }
     },
 
@@ -59,6 +66,7 @@ module.exports = {
             res.render('edit', { product })  
         } catch (error) {
             console.log(error)
+            res.render('errors/500')
         }
     },
 
@@ -83,6 +91,7 @@ module.exports = {
             res.redirect('/store')
         } catch (error) {
             console.log(error)
+            res.render('errors/500')
         }
     }
 }

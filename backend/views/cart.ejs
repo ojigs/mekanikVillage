@@ -1,0 +1,20 @@
+<%- include('partials/header.ejs') %>
+
+<div class="container mt-5">
+    <% if (cart && cart.products.length > 0) {%>
+        <p>Cart got your tongue</p>
+    <%}%>
+    <div class="row">
+        <div class="text-center">
+            <img src="/img/cart.png" alt="Empty Cart">
+        </div>
+        
+        <p class="mt-5 text-center">Nothing here. Your cart is empty!</p>
+        <div class="text-center">
+            <a href="/" class="btn btn-orange mt-5 ps-5 pe-5">Start Shopping</a>
+        </div>
+    </div>
+    
+</div>
+
+<%- include('partials/footer.ejs') %>

@@ -8,6 +8,7 @@ module.exports = {
             console.log(req.usedStrategy)
         } catch (error) {
             console.log(error)
+            res.render('errors/500')
         }
     }, 
 }
