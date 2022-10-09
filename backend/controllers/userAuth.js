@@ -48,10 +48,8 @@ exports.postLogin = (req, res, next) => {
 
 exports.getSignup = (req, res) => {
     if (req.user) {
-        console.log(req.user)
         return res.redirect('/profile')
     }
-    console.log(req.user, req.isAuthenticated())
     res.render('userSignup')
 }
 

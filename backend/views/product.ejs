@@ -14,8 +14,14 @@
             <%}%>
             <p><%= product.categories %></p>
             <p>$<%= product.price %></p>
-            <form action="/cart/:<%= product._id %>" method="POST">
+            <form action="/cart/<%= product._id %>" method="POST">
                 <button type="submit" class="btn bg-orange text-white p-3 col-12">Add to cart</button>
+                <div class="form-group mt-5 row">
+                    <label for="quantity" class="col-sm-2 col-form-label">Quantity:</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="quantity" id="quantity" min="1" value="1">
+                    </div>
+                </div>
             </form>
             <p><%= product.description %></p>
         </div>

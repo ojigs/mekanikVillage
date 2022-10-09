@@ -1,20 +1,46 @@
 <%- include('partials/header.ejs') %>
 
 <div class="container mt-5">
-    <% if (cart && cart.products.length > 0) {%>
-        <p>Cart got your tongue</p>
+    <% if (!cart) {%>
+        <div class="row">
+            <div class="text-center">
+                <img src="/img/cart.png" alt="Empty Cart">
+            </div>
+            
+            <p class="mt-5 text-center">Nothing here. Your cart is empty!</p>
+            <div class="text-center">
+                <a href="/" class="btn btn-orange mt-5 ps-5 pe-5">Start Shopping</a>
+            </div>
+        </div>
+    <%} else {%>
+        <% for (let i = 0; i < cart.items.length; i++) {%>
+            <div class="shadow row col-lg-8 border rounded mx-auto mt-5 cart-item">
+                <div class=" col-4 row align-items-center justify-content-center">
+                    <img class="" src="<%= cart.items[i].image %>" alt="product image">
+                </div>
+                <div class=" col-8 p-3">
+                    <h4><%= cart.items[i].name %></h4>
+                    <p class="mt-3">$<%= cart.items[i].price %></p>
+                    <div class="row mt-3 align-items-center">
+                        <span class="col-6 col-lg-3">Quantity:</span>
+                        <form action="/cart/reduce/<%= cart.items[i].productId %>?_method=PUT" method="POST" class="col-2 col-lg-3 text-center">
+                            <button type="submit" class="reduce btn btn-orange">-</button>
+                        </form>
+                        <span class="col-2 col-lg-3 text-center quantity"><%= cart.items[i].quantity %></span>
+                        <form action="/cart/increase/<%= cart.items[i].productId %>?_method=PUT" method="POST" class="col-2 col-lg-3 text-center">
+                            <button type="submit" class="increase btn btn-orange">+</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <%}%>
+
+        <div class="row justify-content-between align-items-center mx-auto  mt-5 col-8">
+            <button class="btn btn-orange py-3 bill">Checkout @ $<%= cart.bill %></button>
+        </div>
     <%}%>
-    <div class="row">
-        <div class="text-center">
-            <img src="/img/cart.png" alt="Empty Cart">
-        </div>
-        
-        <p class="mt-5 text-center">Nothing here. Your cart is empty!</p>
-        <div class="text-center">
-            <a href="/" class="btn btn-orange mt-5 ps-5 pe-5">Start Shopping</a>
-        </div>
-    </div>
     
 </div>
 
+<script src="/js/main.js"></script>
 <%- include('partials/footer.ejs') %>

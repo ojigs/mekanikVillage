@@ -476,3 +476,8 @@ textarea {
     height: auto;
     
   }
+
+/* Cart */
+.bill {
+  font-size: 24px;
+}
