@@ -15,6 +15,7 @@ const storeRoutes = require('./routes/store')
 const productRoutes = require('./routes/products')
 const profileRoutes = require('./routes/profile')
 const cartRoutes = require('./routes/cart')
+const orderRoutes = require('./routes/order')
 
 
 //Use .env file in config folder
@@ -60,6 +61,7 @@ app.use('/store', storeRoutes)
 app.use('/product', productRoutes)
 app.use('/profile', profileRoutes)
 app.use('/cart', cartRoutes)
+app.use('/order', orderRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log('Server is running, betta go catch it!')

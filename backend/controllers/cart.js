@@ -95,6 +95,7 @@ module.exports = {
             }
         } catch (error) {
             console.log(error)
+            res.render('errors/500')
         }
     },
 
@@ -129,6 +130,7 @@ module.exports = {
             }
         } catch (error) {
             console.log(error)
+            res.render('errors/500')
         }
     }
 }
