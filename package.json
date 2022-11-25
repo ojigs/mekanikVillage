@@ -4,7 +4,7 @@
   "description": "MERN stack e-commerce and service app",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js", 
+    "start": "node backend/server.js", 
     "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" ",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,6 +20,9 @@
   "homepage": "https://github.com/ojigs/mekanikVillage#readme",
   "dependencies": {
     "express": "^4.18.1"
+  },
+  "engines": {
+    "node": "16.18.0"
   },
   "devDependencies": {
     "concurrently": "^7.4.0"

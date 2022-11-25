@@ -16,7 +16,7 @@ module.exports = {
     addToCart: async (req, res) => {
         try {
             if (!req.user) {
-                res.redirect('/userLogin')
+                return res.redirect('/userLogin')
             }
             let userId = req.user.id
             let cart = await Cart.findOne({userId})
