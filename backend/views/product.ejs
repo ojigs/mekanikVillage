@@ -8,12 +8,12 @@
             </div>
         </div>
         <div class="col-lg-6 row justify-content-center align-items-center">
-            <h3><%= product.name %></h3>
+            <h3 class="mb-3"><%= product.name %></h3>
             <% if (product.model.length) {%>
-                <p><%= product.model %></p>
+                <p class="mb-3"><%= product.model %></p>
             <%}%>
-            <p><%= product.categories %></p>
-            <p>$<%= product.price %></p>
+            <p class="mb-3"><%= product.categories %></p>
+            <p class="mb-3">$<%= product.price %></p>
             <form action="/cart/<%= product._id %>" method="POST">
                 <button type="submit" class="btn bg-orange text-white p-3 col-12">Add to cart</button>
                 <div class="form-group mt-5 row">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </form>
-            <p><%= product.description %></p>
+            <p class="mt-5"><%= product.description %></p>
         </div>
     </div>
 </div>
