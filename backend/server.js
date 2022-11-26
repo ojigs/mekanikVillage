@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const logger = require('morgan')
 const passport = require('passport')
 const session = require('express-session')
-const MongoStore = require('connect-mongo')
+const MongoStore = require('connect-mongo')(session)
 const cors = require('cors')
 const methodOverride = require('method-override')
 const flash = require('express-flash')
@@ -45,7 +45,8 @@ app.use(
         secret: process.env.SECRET,
         resave: false,
         saveUninitialized: false,
-        store: MongoStore.create({ client: mongoose.connection.getClient() })
+        // store: MongoStore.create({ client: mongoose.connection.getClient() })
+        store: new MongoStore({ mongooseConnection: mongoose.connection })
     })
 )
 
