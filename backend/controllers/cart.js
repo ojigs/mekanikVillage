@@ -4,6 +4,9 @@ const Product = require('../models/Product')
 module.exports = {
     getCart: async (req, res) => {
         try {
+            if (!req.user) {
+                return res.redirect('/userLogin')
+            }
             const userId = req.user.id
 	        const cart = await Cart.findOne({userId}).sort({date: -1})
 	        res.render('cart', { cart: cart, })
