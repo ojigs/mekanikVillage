@@ -26,7 +26,13 @@ module.exports = {
         try {
             // Upload image to cloudinary
             console.log('are you here?')
-            const result = await cloudinary.uploader.upload(req.file.path);
+            const result = await cloudinary.uploader.upload(req.file.path, 
+                { eager: [
+                    { fetch_format: "webp", flags: "awebp", format: "" },
+                    { fetch_format: "jp2", format: "" },
+                    { fetch_format: "avif", format: "" },],
+                  eager_async: true, });
+            console.log(result)
 
             await Product.create({
                 name: req.body.productName,
@@ -34,7 +40,7 @@ module.exports = {
                 categories: req.body.categories,
                 price: req.body.price,
                 description: req.body.description,
-                image: result.secure_url,
+                image: result.eager[0].secure_url,
                 cloudinaryId: result.public_id,
                 seller: req.user.id,
             });
@@ -50,7 +56,7 @@ module.exports = {
         try {
             const product = await Product.findById({ _id: req.params.id })
             await cloudinary.uploader.destroy(product.cloudinaryId)
-            await Product.remove({ _id: req.params.id })
+            await Product.deleteOne({ _id: req.params.id })
             console.log('deleted product')
             res.redirect('/store')
         } catch (error) {
