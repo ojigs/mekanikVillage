@@ -8,4 +8,4 @@
 ![Wireframe sketch](https://github.com/ojigs/mekanikVillage/blob/main/mekanikvillage1.jpg?raw=true)
 ![Wireframe sketch](https://github.com/ojigs/mekanikVillage/blob/main/mekanikvillage2.jpg?raw=true)
 ![Wireframe sketch](https://github.com/ojigs/mekanikVillage/blob/main/mekanikvillage3.jpg?raw=true)
-![Wireframe sketch](https://github.com/ojigs/mekanikVillage/blob/main/mekanikvillage1.png?raw=true)
+![Wireframe sketch](https://github.com/ojigs/mekanikVillage/blob/main/mekanikvillage4.png?raw=true)
