@@ -42,15 +42,21 @@ app.use(express.json())
 app.use(methodOverride("_method"));
 
 //Setup session stored in MongoDB. Flash uses session
-app.use(
-    session({
-        secret: process.env.SECRET,
-        resave: false,
-        saveUninitialized: false,
-        // store: MongoStore.create({ client: mongoose.connection.getClient() })
-        store: new MongoStore({ mongooseConnection: mongoose.connection })
-    })
-)
+const sess = {
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+    // store: MongoStore.create({ client: mongoose.connection.getClient() })
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: {},
+}
+
+if (app.get('env') === 'producyion') {
+    app.set('trust proxxy', 1)
+    sess.cookie.secure = true
+}
+
+app.use(session(sess))
 
 // Passport middleware
 app.use(passport.initialize());
