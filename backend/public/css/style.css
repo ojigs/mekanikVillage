@@ -352,6 +352,10 @@ textarea {
     filter: grayscale(0%);
 }
 
+.single-partner > img {
+  height: auto;
+}
+
 @media screen  and (max-width:991px) {
     .partner-container {
          width: 20%
