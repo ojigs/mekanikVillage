@@ -268,7 +268,13 @@ textarea {
 .main-btn {
     padding: 15px 35px;
     background-color: #eb3702;
+    color: #fff;
+}
 
+.main-btn:hover {
+  background-color: transparent;
+  border-color: #eb3702;
+  color: #000;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
