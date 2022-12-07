@@ -1,5 +1,5 @@
 body{
-    font-family: "Heebo", sans-serif;
+    font-family: "Heebo", Arial, Helvetica, sans-serif;
     font-weight: 400; 
 }
 
@@ -9,7 +9,7 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Fira Sans", sans-serif;
+    font-family: "Fira Sans", Arial, Helvetica, sans-serif;
     font-weight: 700;
     margin: 0px;
     margin-bottom: 0px;
