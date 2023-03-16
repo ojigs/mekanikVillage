@@ -47,7 +47,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
    * This project was inspired by the need for a better e-commerce platform for vehicle parts/accessories retailers and technicians/vehicle owners.
 
-
+## Snapshots
 ![Wireframe sketch](https://github.com/ojigs/mekanikVillage/blob/main/mekanikvillage2.jpg?raw=true)
 ![Wireframe sketch](https://github.com/ojigs/mekanikVillage/blob/main/mekanikvillage3.jpg?raw=true)
 ![Wireframe sketch](https://github.com/ojigs/mekanikVillage/blob/main/mekanikvillage4.png?raw=true)
