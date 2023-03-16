@@ -25,7 +25,7 @@ The MekanikVillage e-commerce web app uses the following technologies:
 The application architecture for MekanikVillage is based on the Model-View-Controller (MVC) pattern. This pattern separates the application into three interconnected components: the model (data), the view (user interface), and the controller (logic and dataflow).
 
 The MVC architecture provides a clear separation of concerns and helps to maintain a modular codebase that is easier to maintain and scale.
-Getting Started
+## Getting Started
 
 To get started with MekanikVillage, follow these steps:
 
