@@ -38,7 +38,7 @@ To get started with MekanikVillage, follow these steps:
 
 ## Contributors
 
-    * <a href="https://github.com/ojigs">Emmanuel Ojighoro</a>
+   <a href="https://github.com/ojigs">Emmanuel Ojighoro</a>
 
 ## License
 
