@@ -7,7 +7,7 @@
 
 <h2>Mekanik Village provides access to the biggest selection of ready-to-ship aftermarket parts, tools, and accessories, benefiting significant automotive sectors.</h2>
 
-MekanikVillage is a web application that helps bridge the gap between vehicle parts/accessories retailers and technicians/vehicle owners alike. This e-commerce platform allows sellers to create a store on the app and list their products, while buyers can search from available products, place orders, and checkout securely through Stripe payment processing.
+MekanikVillage is an e-commerce web application that helps bridge the gap between vehicle parts/accessories retailers and technicians/vehicle owners alike. This e-commerce platform allows sellers to create a store on the app and list their products, while buyers can search from available products, place orders, and checkout securely through Stripe payment processing.
 ## Tech Stack
 
 The MekanikVillage e-commerce web app uses the following technologies:
