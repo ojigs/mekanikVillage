@@ -1,7 +1,7 @@
 # MekanikVillage E-Commerce Web App
 100 hours project @ 100devs
 
-<a href="https://mekanikvillage.herokuapp.com">https://mekanikvillage.herokuapp.com</a>
+<a href="https://mekanikvillage.vercel.app">https://mekanikvillage.vercel.app</a>
 
 ![Wireframe sketch](https://github.com/ojigs/mekanikVillage/blob/main/mekanikvillage1.jpg?raw=true)
 
