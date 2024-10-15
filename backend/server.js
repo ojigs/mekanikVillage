@@ -51,7 +51,7 @@ const sess = {
 };
 
 if (app.get("env") === "production") {
-  app.set("trust proxxy", 1);
+  app.set("trust proxy", 1);
   sess.cookie.secure = true;
 }
 

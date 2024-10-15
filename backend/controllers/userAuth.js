@@ -9,6 +9,9 @@ exports.getLogin = async (req, res) => {
       return res.redirect("/profile");
     }
   }
+  if (req.session) {
+    req.session.returnTo = req.headers.referer !== "/userLogin" ? req.headers.referer : null;
+  }
   res.render("userLogin");
 };
 
@@ -40,8 +43,10 @@ exports.postLogin = (req, res, next) => {
       if (err) {
         return next(err);
       }
+      const returnTo = req.session.returnTo || "/profile";
+      req.session.returnTo = null;
       req.flash("success", { msg: "Success! You are logged in" });
-      return res.redirect(req.session.returnTo || "/profile");
+      return res.redirect(returnTo);
     });
   })(req, res, next);
 };
